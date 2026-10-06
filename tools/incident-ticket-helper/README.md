@@ -79,4 +79,19 @@ The extension should follow the principle of least privilege and request only th
 - Users must manually copy generated text into authorized systems.
 - The tool is intended for educational and portfolio use, not production operations.
 
+## Product and Escalation Routing
+
+The helper includes a product/service routing matrix that recommends a target escalation team and service category.
+
+Examples:
+
+- PTaaS products may route to T2 or T2/T3.
+- VOIP products may route to T2 or T2/T3.
+- Edge products may route to T3/T4.
+- LAN products may route to T3/T4.
+
+The routing result is included in the generated internal incident note.
+
+See [`docs/product-routing-matrix.md`](docs/product-routing-matrix.md).
+
 The analyst remains responsible for verifying all generated content before use.
