@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rev.io Provisioning Guide</title>
+
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --ink: #172033;
+  --muted: #617089;
+  --accent: #2457d6;
+  --line: #dbe3ef;
+  --soft: #edf3ff;
+  --ok: #17804b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 900px;
+  min-width: 900px;
+  min-height: 700px;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+header {
+  padding: 32px 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #14264d, #2457d6);
+}
+
+main {
+  padding: 24px;
+}
+
+.eyebrow {
+  color: #dbeafe;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  max-width: 820px;
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+input,
+select,
+button {
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+}
+
+input {
+  min-width: 280px;
+  flex: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.progress-text {
+  color: var(--muted);
+}
+
+.progress {
+  height: 10px;
+  margin: 7px 0 20px;
+  overflow: hidden;
+  background: #dfe7f4;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--ok);
+  transition: width .2s ease;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #20386412;
+}
+
+summary {
+  padding: 18px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.body {
+  padding: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  color: var(--accent);
+  background: var(--soft);
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.check {
+  display: block;
+  margin: 9px 0;
+  color: var(--muted);
+}
+
+.check input {
+  min-width: auto;
+  margin-right: 8px;
+}
+
+.note {
+  padding: 12px;
+  background: #fff8df;
+  border-left: 4px solid #e4ae22;
+  border-radius: 6px;
+}
+
+.sample {
+  padding: 13px;
+  color: #dbeafe;
+  background: #101827;
+  border-radius: 8px;
+  font-family: Consolas, monospace;
+  white-space: pre-wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.empty {
+  display: none;
+  padding: 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer {
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 920px) {
+  html,
+  body {
+    width: 700px;
+    min-width: 700px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="eyebrow">GUIA PRACTICA DE ESTUDIO</div>
+  <h1>Aprender provisioning con Rev.io</h1>
+  <p class="subtitle">
+    Usa esta pagina como checklist para estudiar ordenes, servicios, carriers,
+    activacion, facturacion y documentacion sin modificar informacion real.
+  </p>
+</header>
+
+<main>
+
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="Buscar tema, campo o pregunta...">
+
+    <select id="filter">
+      <option value="all">Todos los temas</option>
+      <option value="beginner">Inicial</option>
+      <option value="operations">Operacion</option>
+      <option value="network">Redes</option>
+      <option value="documentation">Documentacion</option>
+    </select>
+
+    <button id="openAll" type="button">Abrir todo</button>
+    <button id="closeAll" type="button">Cerrar todo</button>
+    <button id="reset" type="button">Reiniciar</button>
+  </section>
+
+  <div class="progress-text" id="progressText">
+    0 de 33 puntos completados
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div class="grid" id="cards">
+
+    <details class="card" data-level="beginner" data-search="service order management ordenes orders activity status type process pon">
+      <summary>1. Service order management</summary>
+      <div class="body">
+        <span class="tag">Inicial - Orders</span>
+        <p><b>Objetivo:</b> entender como una solicitud se convierte en una orden.</p>
+        <h3>Consulta en Rev.io</h3>
+        <ul>
+          <li>Orders / Activity.</li>
+          <li>Order status, type, process y PON.</li>
+          <li>Created date, assigned to, provider y phase.</li>
+          <li>Related orders, notes y logs.</li>
+        </ul>
+        <label class="check"><input type="checkbox">Que origino la orden?</label>
+        <label class="check"><input type="checkbox">Es instalacion, cambio, disconnect o replacement?</label>
+        <label class="check"><input type="checkbox">Que evento permite pasar al siguiente estado?</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="beginner" data-search="customer service records cliente registros profile services">
+      <summary>2. Customer and service records</summary>
+      <div class="body">
+        <span class="tag">Inicial - Customer profile</span>
+        <p><b>Objetivo:</b> conectar la cuenta del cliente con sus servicios.</p>
+        <h3>Consulta en Rev.io</h3>
+        <ul>
+          <li>Customer profile, ubicacion y contactos.</li>
+          <li>Services: Service ID, tipo, direccion y estado.</li>
+          <li>Relacion entre Customer ID, Order ID y Service ID.</li>
+        </ul>
+        <label class="check"><input type="checkbox">Puedo identificar correctamente al cliente.</label>
+        <label class="check"><input type="checkbox">Puedo relacionar el cliente con su servicio.</label>
+        <label class="check"><input type="checkbox">Puedo seguir el servicio hasta la orden y el circuito.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="operations" data-search="carrier assignment provider carrier proveedor">
+      <summary>3. Carrier assignment</summary>
+      <div class="body">
+        <span class="tag">Operacion - Carrier</span>
+        <p><b>Objetivo:</b> saber quien entrega o mantiene el servicio.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Provider, Account, Previous Provider y Old Network Service Provider.</li>
+          <li>Carrier notes, escalaciones y tareas.</li>
+          <li>Diferencia entre proveedor comercial y proveedor de red.</li>
+        </ul>
+        <label class="check"><input type="checkbox">Cual es el proveedor responsable actualmente?</label>
+        <label class="check"><input type="checkbox">Existe un proveedor anterior o de red diferente?</label>
+        <label class="check"><input type="checkbox">Que informacion necesita el carrier?</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="operations" data-search="product configuration productos rate quantity options static ip">
+      <summary>4. Product configuration</summary>
+      <div class="body">
+        <span class="tag">Operacion - Products</span>
+        <p><b>Objetivo:</b> entender que componentes forman el servicio.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Description, product code, rate, quantity y action.</li>
+          <li>Productos principales frente a add-ons, como Static IP.</li>
+          <li>On Order y Options.</li>
+        </ul>
+        <div class="sample">Internet 20/20 Mbps + Static IP
+Action: DISCONNECT
+Net change: ($440.00)</div>
+        <label class="check"><input type="checkbox">Identifique el producto principal.</label>
+        <label class="check"><input type="checkbox">Identifique los add-ons afectados.</label>
+        <label class="check"><input type="checkbox">Verifique el cambio neto.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="beginner" data-search="service status management estados active pending new complete cancelled">
+      <summary>5. Service status management</summary>
+      <div class="body">
+        <span class="tag">Inicial - Status</span>
+        <p><b>Objetivo:</b> interpretar el ciclo de vida de una orden o servicio.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>NEW, Pending, Active, Complete, Cancelled, Disconnect.</li>
+          <li>Status history y fechas de cambio.</li>
+          <li>Condicion o evidencia que justifica cada estado.</li>
+        </ul>
+        <label class="check"><input type="checkbox">El estado actual es coherente con la evidencia.</label>
+        <label class="check"><input type="checkbox">El servicio esta realmente operativo.</label>
+        <label class="check"><input type="checkbox">Revise el historial de estados.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="network" data-search="circuit tracking circuit id pon seguimiento circuito">
+      <summary>6. Circuit tracking</summary>
+      <div class="body">
+        <span class="tag">Redes - Circuit</span>
+        <p><b>Objetivo:</b> localizar el identificador tecnico durante todo el proceso.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Circuit ID, PON, Service ID y Provider Number.</li>
+          <li>Relacion entre circuito, direccion y orden.</li>
+          <li>Como documentar reemplazos y desconexiones.</li>
+        </ul>
+        <label class="check"><input type="checkbox">Identifique el Circuit ID correcto.</label>
+        <label class="check"><input type="checkbox">El circuito corresponde a la direccion indicada.</label>
+        <label class="check"><input type="checkbox">Identifique el dato que usaria el carrier.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="network" data-search="ip network information gateway lan static ip red">
+      <summary>7. IP and network information</summary>
+      <div class="body">
+        <span class="tag">Redes - IP</span>
+        <p><b>Objetivo:</b> interpretar los datos de conectividad sin cambiar configuraciones.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>IP address, gateway, LAN block, velocidad y tipo de IP.</li>
+          <li>Static IP como producto separado.</li>
+          <li>Datos publicos, sensibles o internos.</li>
+        </ul>
+        <div class="note"><b>Seguridad:</b> no publiques IPs, circuit IDs, nombres de clientes ni direcciones reales.</div>
+        <label class="check"><input type="checkbox">Identifique los datos sensibles.</label>
+        <label class="check"><input type="checkbox">Separe informacion publica de informacion interna.</label>
+        <label class="check"><input type="checkbox">No modificare configuraciones sin autorizacion.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="operations" data-search="activation disconnect workflow activacion desconexion">
+      <summary>8. Activation and disconnect workflows</summary>
+      <div class="body">
+        <span class="tag">Operacion - Workflow</span>
+        <p><b>Objetivo:</b> comparar instalacion, cambio, reemplazo y desconexion.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Process y Type de la orden.</li>
+          <li>Phase, Due Date, appointment y expedite.</li>
+          <li>Tasks, status history, notes y completion.</li>
+        </ul>
+        <label class="check"><input type="checkbox">Identifique correctamente el tipo de workflow.</label>
+        <label class="check"><input type="checkbox">Verifique la fecha y la fase actual.</label>
+        <label class="check"><input type="checkbox">Verifique controles antes de desconectar.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="operations" data-search="provisioning task coordination tasks assigned tareas">
+      <summary>9. Provisioning task coordination</summary>
+      <div class="body">
+        <span class="tag">Operacion - Tasks</span>
+        <p><b>Objetivo:</b> aprender quien hace cada parte del trabajo.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Task type, assigned user, due date y completion.</li>
+          <li>Dependencias: carrier, soporte, dispatch y customer communication.</li>
+          <li>Escalaciones y evidencia adjunta.</li>
+        </ul>
+        <label class="check"><input type="checkbox">Identifique al responsable de la tarea.</label>
+        <label class="check"><input type="checkbox">Identifique una dependencia bloqueando el avance.</label>
+        <label class="check"><input type="checkbox">Identifique la tarea que bloquea el cierre.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="operations" data-search="billing relationship charges net change facturacion">
+      <summary>10. Relationship between services and billing</summary>
+      <div class="body">
+        <span class="tag">Operacion - Billing</span>
+        <p><b>Objetivo:</b> conectar productos, cargos y cambios de servicio.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Charges, rate, quantity y Net Change.</li>
+          <li>Prorrateo, fecha efectiva y contrato.</li>
+          <li>Que ocurre con add-ons al desconectar el producto principal.</li>
+        </ul>
+        <label class="check"><input type="checkbox">La orden cambia el servicio.</label>
+        <label class="check"><input type="checkbox">La orden cambia la facturacion.</label>
+        <label class="check"><input type="checkbox">El Net Change coincide con el cambio solicitado.</label>
+      </div>
+    </details>
+
+    <details class="card" data-level="documentation" data-search="documentation audit history notes logs documentacion auditoria">
+      <summary>11. Documentation and audit history</summary>
+      <div class="body">
+        <span class="tag">Documentacion - Audit</span>
+        <p><b>Objetivo:</b> reconstruir la historia de una orden con evidencia.</p>
+        <h3>Consulta</h3>
+        <ul>
+          <li>Notes, Logs, Status History e Inventory.</li>
+          <li>Quien creo, asigno, modifico o completo cada etapa.</li>
+          <li>Fechas, incident numbers, pruebas y comunicacion al cliente.</li>
+        </ul>
+        <div class="sample">Fecha/hora:
+Accion realizada:
+Proveedor/contacto:
+Resultado de prueba:
+Proximo paso:
+Responsable:
+Evidencia o referencia:</div>
+        <label class="check"><input type="checkbox">La cronologia esta completa.</label>
+        <label class="check"><input type="checkbox">Las acciones tienen evidencia.</label>
+        <label class="check"><input type="checkbox">La comunicacion al cliente esta documentada.</label>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="empty" id="empty">
+    No se encontraron temas con ese criterio.
+  </div>
+
+  <p class="footer">
+    Uso recomendado: lectura solamente en produccion. Practica cambios unicamente
+    en un ambiente autorizado o con datos de laboratorio.
+  </p>
+
+</main>
+
+<script>
+const cards = [...document.querySelectorAll(".card")];
+const checkboxes = [...document.querySelectorAll(".check input")];
+const search = document.querySelector("#search");
+const filter = document.querySelector("#filter");
+const progressText = document.querySelector("#progressText");
+const progressBar = document.querySelector("#progressBar");
+const empty = document.querySelector("#empty");
+
+function updateProgress() {
+  const completed = checkboxes.filter((item) => item.checked).length;
+  const percentage = (completed / checkboxes.length) * 100;
+
+  progressText.textContent =
+    completed + " de " + checkboxes.length + " puntos completados";
+
+  progressBar.style.width = percentage + "%";
+}
+
+function applyFilters() {
+  const text = search.value.toLowerCase().trim();
+  const level = filter.value;
+  let visible = 0;
+
+  cards.forEach((card) => {
+    const matchesText =
+      !text ||
+      card.dataset.search.toLowerCase().includes(text) ||
+      card.innerText.toLowerCase().includes(text);
+
+    const matchesLevel =
+      level === "all" || card.dataset.level === level;
+
+    const show = matchesText && matchesLevel;
+
+    card.classList.toggle("hidden", !show);
+
+    if (show) {
+      visible++;
+    }
+  });
+
+  empty.style.display = visible === 0 ? "block" : "none";
+}
+
+document.querySelector("#openAll").addEventListener("click", () => {
+  cards.forEach((card) => {
+    if (!card.classList.contains("hidden")) {
+      card.open = true;
+    }
+  });
+});
+
+document.querySelector("#closeAll").addEventListener("click", () => {
+  cards.forEach((card) => {
+    card.open = false;
+  });
+});
+
+document.querySelector("#reset").addEventListener("click", () => {
+  checkboxes.forEach((item) => {
+    item.checked = false;
+  });
+
+  updateProgress();
+});
+
+checkboxes.forEach((item) => {
+  item.addEventListener("change", updateProgress);
+});
+
+search.addEventListener("input", applyFilters);
+filter.addEventListener("change", applyFilters);
+
+updateProgress();
+applyFilters();
+</script>
+
+</body>
+</html>
