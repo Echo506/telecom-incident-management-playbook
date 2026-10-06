@@ -97,6 +97,51 @@ This repository demonstrates:
 
 Use the `docs/` folder to see how I structure policies, runbooks, metrics, and lessons learned.
 
+## NOC Tier 2 Training Course
+
+This repository includes a complete **NOC Tier 2 Technician Training Course** with 13 comprehensive modules covering:
+
+- Customer service and professional communication
+- Network troubleshooting methodologies
+- VoIP and unified communications
+- Networking foundations (IP, subnetting, routing)
+- Network monitoring and alerting
+- Wireshark for VoIP analysis
+- Firewall and VPN fundamentals
+- Salesforce Service Cloud for NOC
+- HPBX platforms (8x8, CoreDial, Windstream, Intelepeer)
+- Product-specific training (BEC, CradlePoint, Ooma, Data Remote)
+- Vendor-specific networking (Fortinet, Meraki, Cisco, Juniper, VeloCloud)
+- CompTIA Network+ certification preparation
+
+### Course Structure
+
+| Component | Location |
+|-----------|----------|
+| Course index and overview | [`docs/training/README.md`](docs/training/README.md) |
+| Training modules (13) | [`docs/training/topics/`](docs/training/topics/) |
+| Progress tracking sheet | [`docs/training/progress-tracking.md`](docs/training/progress-tracking.md) |
+| Certificate template | [`docs/training/certificate-template.md`](docs/training/certificate-template.md) |
+| Instructor guide | [`docs/training/instructor-guide.md`](docs/training/instructor-guide.md) |
+
+### How to Use This Course
+
+**For self-study:**
+1. Start with [`Module 1: Customer Service`](docs/training/topics/01-customer-service.md)
+2. Complete all hands-on exercises for each module
+3. Track your progress in the [`progress tracking sheet`](docs/training/progress-tracking.md)
+4. Prepare for CompTIA Network+ certification (Module 13)
+
+**For instructors:**
+- See the [`Instructor Guide`](docs/training/instructor-guide.md) for teaching strategies, assessments, and lab setup.
+- Use the [`Certificate Template`](docs/training/certificate-template.md) for course completion recognition.
+
+**For job seekers:**
+- Reference this training when discussing your NOC and telecommunications knowledge in interviews.
+- Highlight specific modules that align with the role you're applying for.
+- Mention your CompTIA Network+ preparation (if pursuing certification).
+
+
 ## Author
 
 Created as a practical ITSM, NOC, telecommunications operations, and cybersecurity incident-response portfolio project.
