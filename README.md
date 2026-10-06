@@ -68,6 +68,23 @@ flowchart LR
 
 All examples in this repository are fictional or anonymized for educational and portfolio purposes. Do not include confidential customer information, internal processes, credentials, IP addresses, circuit identifiers, or private vendor ticket numbers.
 
+
+## How to Use This Repository in Interviews
+
+You can reference this repository when discussing:
+
+- Incident management and ITSM experience
+- NOC and telecommunications operations
+- Cybersecurity incident response foundations
+- Documentation, runbooks, and process improvement
+- Communication with customers, carriers, and vendors
+
+Example talking points:
+
+- “I built a telecom incident management playbook that maps our daily NOC work to ITIL 4 and NIST incident response.”
+- “I created runbooks and communication templates that standardize how we handle outages and carrier escalations.”
+- “I documented anonymized case studies to show how I apply detection, triage, escalation, and post-incident review in practice.”
+
 ## Author
 
 Created as a practical ITSM, NOC, telecommunications operations, and cybersecurity incident-response portfolio project.
