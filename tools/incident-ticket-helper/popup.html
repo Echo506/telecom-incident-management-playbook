@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incident Ticket Helper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <h1>Incident Ticket Helper</h1>
+
+  <div class="tabs" role="tablist" aria-label="Incident Ticket Helper sections">
+    <button
+      class="tab-btn active"
+      type="button"
+      data-tab="incident"
+      role="tab"
+      aria-selected="true"
+      aria-controls="tab-incident"
+    >
+      Incident
+    </button>
+
+    <button
+      class="tab-btn"
+      type="button"
+      data-tab="customer"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-customer"
+    >
+      Customer
+    </button>
+
+    <button
+      class="tab-btn"
+      type="button"
+      data-tab="carrier"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-carrier"
+    >
+      Carrier
+    </button>
+
+    <button
+      class="tab-btn"
+      type="button"
+      data-tab="templates"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-templates"
+    >
+      Templates
+    </button>
+  </div>
+
+  <!-- INCIDENT TAB -->
+  <section
+    id="tab-incident"
+    class="tab-content active"
+    role="tabpanel"
+    aria-label="Incident documentation form"
+  >
+    <form id="incident-form" novalidate>
+      <label for="incident-id">Ticket / Case ID *</label>
+      <input
+        id="incident-id"
+        type="text"
+        placeholder="e.g. INC-000000"
+        autocomplete="off"
+        required
+      />
+
+      <label for="incident-type">Incident Type *</label>
+      <input
+        id="incident-type"
+        type="text"
+        placeholder="e.g. Network Outage"
+        autocomplete="off"
+        required
+      />
+
+      <label for="product-service">Product / Service *</label>
+      <select id="product-service" required>
+        <option value="">Select product or service...</option>
+        <option value="IOW - Webbing">IOW - Webbing</option>
+        <option value="IOS - StarLink">IOS - StarLink</option>
+        <option value="DataRemote">DataRemote</option>
+        <option value="Ooma">Ooma</option>
+        <option value="BEC">BEC</option>
+        <option value="Inseego">Inseego</option>
+        <option value="Cradlepoint">Cradlepoint</option>
+        <option value="Wattbox">Wattbox</option>
+        <option value="FortiGate">FortiGate</option>
+        <option value="Meraki">Meraki</option>
+        <option value="Cato">Cato</option>
+        <option value="Cisco">Cisco</option>
+        <option value="Access Points/Switches">Access Points/Switches</option>
+        <option value="Grandstream ATA">Grandstream ATA</option>
+        <option value="Mitel Phones">Mitel Phones</option>
+        <option value="Polycom Phones">Polycom Phones</option>
+        <option value="Efax">Efax</option>
+      </select>
+
+      <label for="target-team">Recommended Escalation Team</label>
+      <input
+        id="target-team"
+        type="text"
+        placeholder="Select a product/service first"
+        readonly
+      />
+
+      <label for="service-category">Service Category</label>
+      <input
+        id="service-category"
+        type="text"
+        placeholder="Select a product/service first"
+        readonly
+      />
+
+      <div
+        id="routing-recommendation"
+        class="routing-recommendation"
+        role="status"
+        aria-live="polite"
+      >
+        Select a product or service to view the recommended escalation team.
+      </div>
+
+      <label for="severity">Severity *</label>
+      <select id="severity" required>
+        <option value="">Select...</option>
+        <option value="Sev1 - Critical">Sev1 - Critical</option>
+        <option value="Sev2 - High">Sev2 - High</option>
+        <option value="Sev3 - Medium">Sev3 - Medium</option>
+        <option value="Sev4 - Low">Sev4 - Low</option>
+      </select>
+
+      <label for="impact">Impact *</label>
+      <select id="impact" required>
+        <option value="">Select...</option>
+        <option value="High - Multiple sites / critical services">
+          High - Multiple sites / critical services
+        </option>
+        <option value="Medium - Single site / important service">
+          Medium - Single site / important service
+        </option>
+        <option value="Low - Single user / non-critical">
+          Low - Single user / non-critical
+        </option>
+      </select>
+
+      <label for="urgency">Urgency *</label>
+      <select id="urgency" required>
+        <option value="">Select...</option>
+        <option value="High - Immediate action required">
+          High - Immediate action required
+        </option>
+        <option value="Medium - Action within hours">
+          Medium - Action within hours
+        </option>
+        <option value="Low - Action within day">
+          Low - Action within day
+        </option>
+      </select>
+
+      <label for="affected-service">Affected Service *</label>
+      <input
+        id="affected-service"
+        type="text"
+        placeholder="e.g. Primary internet circuit, firewall, or site network"
+        autocomplete="off"
+        required
+      />
+
+      <label for="symptoms">Symptoms *</label>
+      <textarea
+        id="symptoms"
+        placeholder="Describe what the customer or monitoring platform reports."
+        required
+      ></textarea>
+
+      <label for="start-time">Incident Start (local time) *</label>
+      <input
+        id="start-time"
+        type="text"
+        placeholder="e.g. 2026-10-06 08:30 CST"
+        autocomplete="off"
+        required
+      />
+
+      <label for="detection-source">Detection Source *</label>
+      <select id="detection-source" required>
+        <option value="">Select...</option>
+        <option value="Monitoring alert">Monitoring alert</option>
+        <option value="Customer report">Customer report</option>
+        <option value="Carrier notification">Carrier notification</option>
+        <option value="Internal team notification">Internal team notification</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="actions-taken">Actions Taken (one per line) *</label>
+      <textarea
+        id="actions-taken"
+        placeholder="- Validated the monitoring alert&#10;- Confirmed the device was unreachable&#10;- Opened a carrier ticket"
+        required
+      ></textarea>
+
+      <label for="next-steps">Next Steps (one per line) *</label>
+      <textarea
+        id="next-steps"
+        placeholder="- Await carrier update&#10;- Validate restoration after repair&#10;- Send customer status update"
+        required
+      ></textarea>
+
+      <label for="language">Internal Note Language</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+
+      <button type="submit">Generate Internal Note</button>
+    </form>
+
+    <label for="output-internal">
+      Generated Internal Note (review before use)
+    </label>
+
+    <textarea
+      id="output-internal"
+      readonly
+      placeholder="Your structured incident chronology will appear here."
+    ></textarea>
+
+    <button id="copy-internal-btn" type="button">
+      Copy Internal Note
+    </button>
+  </section>
+
+  <!-- CUSTOMER TAB -->
+  <section
+    id="tab-customer"
+    class="tab-content"
+    role="tabpanel"
+    aria-label="Customer update form"
+  >
+    <form id="customer-form" novalidate>
+      <label for="cust-case-id">Ticket / Case ID *</label>
+      <input
+        id="cust-case-id"
+        type="text"
+        placeholder="e.g. INC-000000"
+        autocomplete="off"
+        required
+      />
+
+      <label for="cust-site">Site / Location *</label>
+      <input
+        id="cust-site"
+        type="text"
+        placeholder="e.g. Customer Site A"
+        autocomplete="off"
+        required
+      />
+
+      <label for="cust-impact">Business Impact *</label>
+      <textarea
+        id="cust-impact"
+        placeholder="Describe the business or service impact in customer-friendly language."
+        required
+      ></textarea>
+
+      <label for="cust-status">Current Status *</label>
+      <textarea
+        id="cust-status"
+        placeholder="Describe the investigation or restoration status."
+        required
+      ></textarea>
+
+      <label for="cust-next">Next Steps *</label>
+      <textarea
+        id="cust-next"
+        placeholder="Describe the next action and expected update."
+        required
+      ></textarea>
+
+      <label for="cust-language">Customer Update Language</label>
+      <select id="cust-language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+
+      <button type="submit">Generate Customer Update</button>
+    </form>
+
+    <label for="output-customer">
+      Generated Customer Update (review before use)
+    </label>
+
+    <textarea
+      id="output-customer"
+      readonly
+      placeholder="Your customer communication draft will appear here."
+    ></textarea>
+
+    <button id="copy-customer-btn" type="button">
+      Copy Customer Update
+    </button>
+  </section>
+
+  <!-- CARRIER TAB -->
+  <section
+    id="tab-carrier"
+    class="tab-content"
+    role="tabpanel"
+    aria-label="Carrier escalation form"
+  >
+    <form id="carrier-form" novalidate>
+      <label for="carrier-name">Carrier Name *</label>
+      <input
+        id="carrier-name"
+        type="text"
+        placeholder="e.g. Carrier X"
+        autocomplete="off"
+        required
+      />
+
+      <label for="carrier-circuit">Circuit / Service ID (anonymized) *</label>
+      <input
+        id="carrier-circuit"
+        type="text"
+        placeholder="e.g. CIRCUIT-XXXX"
+        autocomplete="off"
+        required
+      />
+
+      <label for="carrier-site">Site Address / Location (general) *</label>
+      <input
+        id="carrier-site"
+        type="text"
+        placeholder="e.g. Retail location, Austin TX"
+        autocomplete="off"
+        required
+      />
+
+      <label for="carrier-symptoms">Symptoms *</label>
+      <textarea
+        id="carrier-symptoms"
+        placeholder="Describe the service condition and observed failure."
+        required
+      ></textarea>
+
+      <label for="carrier-troubleshooting">Troubleshooting Summary *</label>
+      <textarea
+        id="carrier-troubleshooting"
+        placeholder="Summarize validation steps, monitoring results, and local checks."
+        required
+      ></textarea>
+
+      <label for="carrier-request">Requested Action *</label>
+      <textarea
+        id="carrier-request"
+        placeholder="e.g. Please perform line testing, confirm known outages, and dispatch if needed."
+        required
+      ></textarea>
+
+      <button type="submit">Generate Carrier Escalation Draft</button>
+    </form>
+
+    <label for="output-carrier">
+      Generated Carrier Escalation Draft (review before use)
+    </label>
+
+    <textarea
+      id="output-carrier"
+      readonly
+      placeholder="Your carrier escalation draft will appear here."
+    ></textarea>
+
+    <button id="copy-carrier-btn" type="button">
+      Copy Carrier Draft
+    </button>
+  </section>
+
+  <!-- TEMPLATES TAB -->
+  <section
+    id="tab-templates"
+    class="tab-content"
+    role="tabpanel"
+    aria-label="Local templates"
+  >
+    <p class="hint">
+      Templates are stored locally in your browser only. They are not sent to
+      any external server.
+    </p>
+
+    <label for="template-list">Saved Templates</label>
+    <select id="template-list">
+      <option value="">-- Select a template --</option>
+    </select>
+
+    <label for="template-name">Template Name</label>
+    <input
+      id="template-name"
+      type="text"
+      placeholder="e.g. Standard Outage Update"
+      autocomplete="off"
+    />
+
+    <label for="template-content">Template Content</label>
+    <textarea
+      id="template-content"
+      placeholder="Enter template text here..."
+    ></textarea>
+
+    <button id="save-template-btn" type="button">
+      Save Template Locally
+    </button>
+
+    <button id="load-template-btn" type="button">
+      Load Selected Template
+    </button>
+
+    <button id="delete-template-btn" type="button">
+      Delete Selected Template
+    </button>
+  </section>
+
+  <p class="hint">
+    Educational prototype only. Do not enter real customer names, addresses,
+    account numbers, circuit IDs, IP addresses, credentials, or confidential
+    information.
+  </p>
+
+  <script src="product-routing.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

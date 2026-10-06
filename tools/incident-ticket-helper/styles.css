@@ -1,0 +1,93 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 12px;
+  width: 380px;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+  font-weight: 600;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+label {
+  display: block;
+  margin: 10px 0 4px;
+  font-weight: 600;
+}
+
+input, select, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  padding: 6px;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.hint {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+.routing-recommendation {
+  margin-top: 8px;
+  padding: 8px;
+  border-left: 4px solid #2563eb;
+  border-radius: 4px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+input[readonly] {
+  background: #f3f4f6;
+  color: #374151;
+  cursor: not-allowed;
+}

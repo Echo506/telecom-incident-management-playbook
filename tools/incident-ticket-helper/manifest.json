@@ -1,0 +1,14 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Incident Ticket Helper",
+  "version": "0.2.0",
+  "description": "Educational browser extension prototype for structured incident documentation and communication drafts.",
+  "action": {
+    "default_title": "Incident Ticket Helper",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": []
+}

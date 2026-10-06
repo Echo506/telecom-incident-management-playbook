@@ -1,0 +1,94 @@
+// product-routing.js
+// Educational routing matrix. Do not include confidential internal data.
+
+const PRODUCT_ROUTING = [
+  {
+    product: "IOW - Webbing",
+    team: "T2",
+    category: "PTaaS"
+  },
+  {
+    product: "IOS - StarLink",
+    team: "T2",
+    category: "PTaaS"
+  },
+  {
+    product: "DataRemote",
+    team: "T2/T3",
+    category: "PTaaS"
+  },
+  {
+    product: "Ooma",
+    team: "T2",
+    category: "VOIP"
+  },
+  {
+    product: "BEC",
+    team: "T2/T3",
+    category: "VOIP"
+  },
+  {
+    product: "Inseego",
+    team: "T2/T3",
+    category: "PTaaS"
+  },
+  {
+    product: "Cradlepoint",
+    team: "T2/T3",
+    category: "PTaaS"
+  },
+  {
+    product: "Wattbox",
+    team: "T2/T3",
+    category: "PTaaS"
+  },
+  {
+    product: "FortiGate",
+    team: "T3/T4",
+    category: "Edge"
+  },
+  {
+    product: "Meraki",
+    team: "T3/T4",
+    category: "Edge"
+  },
+  {
+    product: "Cato",
+    team: "T3/T4",
+    category: "Edge"
+  },
+  {
+    product: "Cisco",
+    team: "T3/T4",
+    category: "Edge"
+  },
+  {
+    product: "Access Points/Switches",
+    team: "T3/T4",
+    category: "LAN"
+  },
+  {
+    product: "Grandstream ATA",
+    team: "T2/T3",
+    category: "VOIP"
+  },
+  {
+    product: "Mitel Phones",
+    team: "T2/T3",
+    category: "VOIP"
+  },
+  {
+    product: "Polycom Phones",
+    team: "T2",
+    category: "VOIP"
+  },
+  {
+    product: "Efax",
+    team: "T2",
+    category: "VOIP"
+  }
+];
+
+function getRoutingByProduct(productName) {
+  return PRODUCT_ROUTING.find(item => item.product === productName) || null;
+}
