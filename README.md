@@ -85,6 +85,18 @@ Example talking points:
 - “I created runbooks and communication templates that standardize how we handle outages and carrier escalations.”
 - “I documented anonymized case studies to show how I apply detection, triage, escalation, and post-incident review in practice.”
 
+## For Recruiters
+
+This repository demonstrates:
+
+- Real-world NOC and telecommunications incident handling
+- ITIL-aligned incident management practices
+- NIST-based incident response concepts
+- Bilingual (EN/ES) professional communication
+- Clear documentation, runbooks, and process thinking
+
+Use the `docs/` folder to see how I structure policies, runbooks, metrics, and lessons learned.
+
 ## Author
 
 Created as a practical ITSM, NOC, telecommunications operations, and cybersecurity incident-response portfolio project.
