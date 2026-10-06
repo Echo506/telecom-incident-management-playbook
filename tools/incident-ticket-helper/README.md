@@ -69,4 +69,14 @@ The extension should follow the principle of least privilege and request only th
 5. Review the output manually.
 6. Copy the approved text into an authorized ticketing system.
 
+## Security and Privacy Review
+
+- The extension uses only `storage` and no host permissions.
+- No external network requests are made.
+- All data remains local to the browser profile.
+- No credentials, tokens, or confidential fields are collected.
+- Templates are stored via `chrome.storage.local` only.
+- Users must manually copy generated text into authorized systems.
+- The tool is intended for educational and portfolio use, not production operations.
+
 The analyst remains responsible for verifying all generated content before use.
