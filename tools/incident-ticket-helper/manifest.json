@@ -1,1 +1,11 @@
-
+﻿{
+  "manifest_version": 3,
+  "name": "Rev.io Provisioning Guide",
+  "version": "1.0.0",
+  "description": "Guía interactiva para estudiar provisioning, órdenes, carriers, circuitos y documentación.",
+  "action": {
+    "default_title": "Abrir Rev.io Provisioning Guide",
+    "default_popup": "popup.html"
+  },
+  "permissions": []
+}
